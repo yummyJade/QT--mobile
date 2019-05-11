@@ -1,3 +1,17 @@
+.header{
+	position: fixed;
+	top: 0;
+	z-index: 200;
+}
+.container{
+	padding-top: 1rem;
+}
+.goodlist-item{
+	width: auto;
+	height: auto;
+	border: none;
+	border-radius: unset;
+}
 .header .title{
 	width: 7.5rem;
 	height: 1rem;
@@ -50,7 +64,7 @@
 }
 
 .others{
-	width: 2.2rem;
+	width: 1.8rem;
 	/*float: right;*/
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -102,7 +116,7 @@
 	        justify-content: space-between;
 }
 .goodlist-item .listLabels ul li,.others{
-	margin-bottom: 0.12rem;
+	margin-top: 0.12rem;
 }
 .goodlist-item .listLabels ul li:nth-child(2n){
 	margin-right: 0;

@@ -51,19 +51,19 @@ function getActivityList(){
 					<div class="decoration">
 						<div class="tri">
 						</div>
-							<img src="../static/images/star.png" alt="" class="star">
+							<img src="../images/star.png" alt="" class="star">
 					</div>
-					<img src="../static/images/banner.png" alt="" class="goodlist-item-introImg">
+					<img src="../images/banner.png" alt="" class="goodlist-item-introImg">
 					<div class="description">
 						<div class="id" style="display:none;" >${data.data[i].id}</div>
 						<div class="listName">${data.data[i].title}</div>
 						<div class="listTime">
-							<img src="../static/images/timeIcon.png" alt="">
+							<img src="../images/timeIcon.png" alt="">
 							<div>${data.data[i].time}</div>
 							
 						</div>
 						<div class="listAddress">
-							<img src="../static/images/addressIcon.png" alt="">
+							<img src="../images/addressIcon.png" alt="">
 							<div>青岛市 ${data.data[i].zone}</div>
 						</div>
 						<div class="listLabels clearfix">

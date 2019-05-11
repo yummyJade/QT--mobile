@@ -1,6 +1,11 @@
-
+.header{
+	position: fixed;
+	top: 0;
+	z-index: 200;
+}
 .container{
 	width: 7.5rem;
+	padding-top: 2rem;
 }
 .header .title{
 	width: 7.5rem;
@@ -16,7 +21,7 @@
 
 
 .menu{
-	padding: 0.25rem 0.3rem 1rem 0.3rem;
+	padding: 0.25rem 0.3rem 1.2rem 0.3rem;
 	border-bottom: 0.02rem solid #cccccc;
 
 	
@@ -54,17 +59,19 @@
 	margin-top: -100rem;
 
 }
-.districts-items ul{
+.districts-items ul,.classify-items ul{
 	/*width: 100%;*/
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
 	-ms-flex-wrap: wrap;
 	    flex-wrap: wrap;
+	/*justify-content: flex-start;*/
+	/*align-content: space-between;*/
 	margin: 0.25rem 0.54rem 0.3rem 0.54rem;
 	
 }
-.districts-items ul li{
+.districts-items ul li,.classify-items ul li{
 	/*width:1.4rem;*/
 	padding: 0 0.36rem 0 0.36rem;
 	height:0.6rem;
@@ -75,12 +82,14 @@
 	font-size:.24rem;
 	color:rgba(128,128,128,1);
 	margin-bottom: 0.21rem;
-	margin-right: 0.16rem;
+	margin-right: 0.06rem;
+	margin-left: 0.06rem;
+	/*0.016*/
 
 }
-.districts-items ul li:nth-child(4n){
+/*.districts-items ul li:nth-child(4n){
 	margin-right: 0;
-}
+}*/
 .classify-menu,.districts-menu{
 	width: 2.8rem;
 	height: 0.68rem;
@@ -147,4 +156,15 @@
 }
 .goodlist-item{
 	border: solid 0.04rem #ffffff;
+}
+
+.chooseOnItem{
+	box-shadow: inset 0rem -0.04rem 0.04rem 0rem 
+		rgba(0, 0, 0, 0.1);
+	border: solid 0.02rem #00d8a0!important;
+}
+
+.chooseOnNav{
+	color:#00D8A0!important;
+
 }

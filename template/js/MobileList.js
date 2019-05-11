@@ -221,17 +221,17 @@ function getActivityList({
 
 				<div class="goodlist-item">
 				
-					<img src="../static/images/banner.png" alt="" class="goodlist-item-introImg">
+					<img src="../images/banner.png" alt="" class="goodlist-item-introImg">
 					<div class="description">
 						<div class="id" style="display:none;" >${data.data[i].id}</div>
 						<div class="listName">${data.data[i].title}</div>
 						<div class="listTime">
-							<img src="../static/images/timeIcon.png" alt="">
+							<img src="../images/timeIcon.png" alt="">
 							<div>${data.data[i].time}</div>
 							
 						</div>
 						<div class="listAddress">
-							<img src="../static/images/addressIcon.png" alt="">
+							<img src="../images/addressIcon.png" alt="">
 							<div>青岛市 ${data.data[i].zone}</div>
 						</div>
 						<div class="listLabels clearfix">
@@ -316,7 +316,7 @@ $(".goodlist-menu").on('click','.goodlist-item',function(){
 	var index = $(this).index();
 	var id = $(this).find(".id").text();
 	//获取对应的id项并拼接传值
-	window.location.href = "../content?id="+id;
+	window.location.href = "../html/content.html?id="+id;
 	return false;
 })
 

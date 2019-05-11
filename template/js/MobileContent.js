@@ -67,12 +67,12 @@ function getActivityContent({
 	  		//先确认是否点过赞
 	  		if(isLike){
 	  			str3 = `
-					<img src="../static/images/thumbUp.png" alt="">
+					<img src="../images/thumbUp.png" alt="">
 	  			`
 	  		}else{
 	  			str3 = `
-	  				<img src="../static/images/thumbUp.png" alt="" class="hide">
-					<img src="../static/images/thumbIcon.png" alt="">
+	  				<img src="../images/thumbUp.png" alt="" class="hide">
+					<img src="../images/thumbIcon.png" alt="">
 	  			`
 	  		}
 
@@ -90,7 +90,7 @@ function getActivityContent({
 	  		`
 	  			<div class="goodlist-item">
 				
-						<img src="../static/images/banner.png" alt="" class="goodlist-item-introImg">
+						<img src="../images/banner.png" alt="" class="goodlist-item-introImg">
 						<div class="description">
 							<div class="id" style="display:none;" >${data.data.id}</div>	
 							<div class="listName">${data.data.title}</div>
@@ -109,7 +109,7 @@ function getActivityContent({
 										<span>${data.data.like}</span>
 									</div>
 									<div class="see">
-										<img src="../static/images/seeIcon.png" alt="">
+										<img src="../images/seeIcon.png" alt="">
 										<span>${visitNum}</span>
 									</div>
 
@@ -117,24 +117,24 @@ function getActivityContent({
 							</div>
 							
 							<div class="listTime">
-								<img src="../static/images/timeIcon.png" alt="">
+								<img src="../images/timeIcon.png" alt="">
 								<div>${data.data.time}</div>
 								
 							</div>
 							<div class="listAddress">
-								<img src="../static/images/addressIcon.png" alt="">
+								<img src="../images/addressIcon.png" alt="">
 								<div>青岛市 ${data.data.zone} ${data.data.address}</div>
 							</div>
 							<div class="listSponsor">
-								<img src="../static/images/sponsorIcon.png" alt="">
+								<img src="../images/sponsorIcon.png" alt="">
 								<div>主办单位：${data.data.reception}</div>
 							</div>
 								<div class="listContactor">
-								<img src="../static/images/ContactorIcon.png" alt="">
+								<img src="../images/ContactorIcon.png" alt="">
 								<div>联系人：${data.data.person}</div>
 							</div>
 								<div class="listPhone">
-								<img src="../static/images/PhoneIcon.png" alt="">
+								<img src="../images/PhoneIcon.png" alt="">
 								<div>预约电话：${data.data.telephone}</div>
 							</div>
 							

@@ -18,6 +18,7 @@ a {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
 }
+
 /*底下的点击栏*/
 .navBar{
 	position: fixed;
@@ -86,7 +87,7 @@ a {
 	border-radius: 0.16rem;
 	border: solid 0.04rem #00d8a0;
 	position: relative;
-	margin-top: 0.36rem;
+	margin-bottom: 0.36rem;
 	overflow: hidden;
 }
 
@@ -124,6 +125,7 @@ a {
 
 .goodlist-item .listLabels{
 	margin-top: 0.1rem;
+	margin-bottom: 0.2rem;
 }
 .goodlist-item .listLabels ul li{
 	float: left;
@@ -165,4 +167,16 @@ a {
 	width: 0.23rem;
 	height: auto;
 	margin-right: 0.16rem;
+}
+
+.hide{
+	display: none;
+}
+
+.toHead{
+	color: #b3b3b3;
+	text-align: center;
+	font-size: 0.28rem;
+	padding-top: .3rem;
+	display: none;
 }
