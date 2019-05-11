@@ -1,0 +1,147 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+.clearfix::after {
+    content:" ";
+    display:block;
+    clear:both;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+a {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+}
+/*底下的点击栏*/
+.navBar{
+	position: fixed;
+	bottom: 0;
+	z-index: 100;
+	width: 7.5rem;
+	height: 1rem;
+	background-color: #fafafa;
+	box-shadow: 0rem -0.04rem 0.04rem 0rem 
+		rgba(0, 0, 0, 0.05);
+}
+.navBar > div{
+	width: 3.33rem;
+	height: 1rem;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+}
+.navBar img{
+	width: 0.49rem;
+	/*height: 0.56rem;*/
+
+}
+.navBar .words{
+
+	font-size: 0.18rem;
+	color: #9e9e9e;
+	margin-top: 0.1rem;
+}
+
+.indexBtn a,.listBtn a{
+	width: 0.49rem;
+	display: flex;
+	height: 1rem;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+
+/*精选列表部分*/
+
+.goodlist-item{
+	width: 6.9rem;
+	min-height: 4.71rem;
+	background-color: #ffffff;
+	box-shadow: 0rem 0.05rem 0.08rem 0rem 
+		rgba(0, 0, 0, 0.1);
+	border-radius: 0.16rem;
+	border: solid 0.04rem #00d8a0;
+	position: relative;
+	margin-top: 0.36rem;
+	overflow: hidden;
+}
+
+.goodlist-item .tri{
+  position: absolute;
+  top: 0;
+  right: 0;
+  height:0;
+  width:0;
+  border-right:solid 0.92rem #00d8a0;
+  border-bottom:solid 0.92rem transparent;
+}
+.goodlist-item .star{
+	width: 0.36rem;
+	height: 0.38rem;
+	position: absolute;
+	top: 0.1rem;
+	right: 0.1rem;
+}
+.goodlist-item-introImg{
+	width: 6.9rem;
+	height: 2.56rem;
+}
+.description{
+	padding: 0 0.15rem 0 0.15rem;
+}
+.goodlist-item .listName{
+
+	font-size: 0.28rem;
+	font-weight: normal;
+	font-stretch: normal;
+	color: #1a1a1a;
+}
+
+
+.goodlist-item .listLabels{
+	margin-top: 0.1rem;
+}
+.goodlist-item .listLabels ul li{
+	float: left;
+	width: 1.69rem;
+	height: 0.38rem;
+	line-height: 0.38rem;
+	text-align: center;
+	background-color: #00d8a0;
+	border-radius: 0.06rem;
+	font-size: 0.24rem;
+	color: white;
+	margin-right: 0.12rem;
+}
+
+.goodlist-item .listLabels ul li:nth-child(1){
+	margin-left: 0;
+}
+
+.listTime,.listAddress,.listSponsor,.listContactor,.listPhone{
+	display: flex;
+	align-items: center;
+	font-size: 0.24rem;
+	font-weight: normal;
+	font-stretch: normal;
+	color: #b3b3b3;
+	margin-top: 0.1rem;
+
+}
+.listTime img,.listSponsor img,.listContactor img,.listPhone img{
+	width: 0.26rem;
+	height: auto;
+	margin-right: 0.16rem;
+}
+.listAddress img{
+	width: 0.23rem;
+	height: auto;
+	margin-right: 0.16rem;
+}

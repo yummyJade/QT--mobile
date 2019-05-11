@@ -1,0 +1,150 @@
+
+.container{
+	width: 7.5rem;
+}
+.header .title{
+	width: 7.5rem;
+	height: 1rem;
+	line-height: 1rem;
+	text-align: center;
+	background-color: #00d8a0;
+	font-size: 0.36rem;
+	color: white;
+	position: relative;
+	z-index: 200;
+}
+
+
+.menu{
+	padding: 0.25rem 0.3rem 1rem 0.3rem;
+	border-bottom: 0.02rem solid #cccccc;
+
+	
+}
+.districts-menu{
+	
+	margin: 0 auto;
+
+}
+
+.goodlist{
+	border-bottom: none;
+}
+.topBar{
+	position: relative;
+	padding:0.16rem 0.54rem 0.16rem 0.54rem;
+	z-index: 200;
+	background-color: #fcfcfc;
+}
+.barItems{
+	position: relative;
+}
+.districts-items,.classify-items{
+	
+	/*width: calc()*/
+	/*width: 6.42rem;*/
+	width: 7.5rem;
+	position: absolute;
+	top: -0.01rem;
+	left: 0;
+	right: 0;
+	z-index: 100;
+	min-height:2.56rem;
+	background:rgba(252,252,252,1);
+	margin-top: -100rem;
+
+}
+.districts-items ul{
+	/*width: 100%;*/
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+	margin: 0.25rem 0.54rem 0.3rem 0.54rem;
+	
+}
+.districts-items ul li{
+	/*width:1.4rem;*/
+	padding: 0 0.36rem 0 0.36rem;
+	height:0.6rem;
+	line-height: 0.6rem;
+	background:rgba(255,255,255,1);
+	border:0.02rem solid rgba(128,128,128,1);
+	border-radius:.16rem;
+	font-size:.24rem;
+	color:rgba(128,128,128,1);
+	margin-bottom: 0.21rem;
+	margin-right: 0.16rem;
+
+}
+.districts-items ul li:nth-child(4n){
+	margin-right: 0;
+}
+.classify-menu,.districts-menu{
+	width: 2.8rem;
+	height: 0.68rem;
+	
+	background-color: #ffffff;
+	-webkit-box-shadow: inset 0rem -0.04rem 0.04rem 0rem 
+		rgba(0, 0, 0, 0.1);
+	        box-shadow: inset 0rem -0.04rem 0.04rem 0rem 
+		rgba(0, 0, 0, 0.1);
+	border-radius: 0.16rem;
+	border: solid 0.02rem #00d8a0;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	
+
+}
+.districts-menu{
+	float: left;
+}
+.classify-menu{
+	float: right;
+}
+.topBar .show{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	color: #4d4d4d;
+	font-size: 0.3rem;
+
+}
+.topBar img{
+	width: 0.2rem;
+	height: 0.13rem;
+	margin-left: 0.08rem;
+	
+}
+.menu{
+	padding-top: 0;
+
+}
+
+.listBtn .words{
+	color: #00d8a0;
+}
+
+.black-cover{
+	width: 7.5rem;
+	background-color: rgba(0,0,0,.4);
+	position: absolute;
+	z-index: 200;
+	left: 0;
+	right: 0;
+	height: 0;
+}
+.goodlist-item{
+	border: solid 0.04rem #ffffff;
+}
