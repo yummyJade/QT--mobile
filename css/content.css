@@ -121,19 +121,20 @@
 .goodlist-item .listLabels ul li:nth-child(2n){
 	margin-right: 0;
 }
-.listName,.listLabels{
+.listLabels{
 	margin-left: 0.3rem;
+}
+.listName{
+	margin-left: 0.3rem;
+	margin-right: 0.3rem;
 }
 .listTime,.listAddress,.listSponsor,.listContactor,.listPhone{
 
 	border-bottom: 0.01rem solid #e6e6e6;
 	margin-top:0rem;
-	padding: 0.16rem 0 0.16rem 0;
+	padding: 0.16rem 0.3rem 0.16rem 0.3rem;
 }
-.listTime img,.listSponsor img,.listAddress img,.listContactor img,.listPhone img{
-	
-	margin-left: 0.3rem;
-}
+
 .listTime{
 	border-top: 0.01rem solid #e6e6e6;
 }
@@ -161,21 +162,32 @@
 	margin-top: 0.45rem;
 }
 .activityContent .top .word{
+	white-space:nowrap;
 	width: 1.2rem;
-	
+	-ms-flex-negative:0;
+	    flex-shrink:0;
 	font-size: 0.3rem;
 	color: #4d4d4d;
 }
 .activityContent .top .line{
+	-ms-flex-negative:1;
+	    flex-shrink:1;
+	/*flex-grow:1;*/
 	width: 2.66rem;
 	height: 0.02rem;
 	background-color: #00d8a0;
 }
 .activityContent .content{
-
+	
 	font-size: 0.26rem;
 	line-height: 0.36rem;
 	color: #666666;
 	margin: 0 auto;
 	margin-top: 0.1rem;
+}
+.goodlist-item .listLabels{
+	margin-bottom: 0;
+}
+.goodlist-item .listName{
+	font-size: 0.34rem;
 }

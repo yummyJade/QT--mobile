@@ -9,10 +9,32 @@ html{
 	width: 100%;
 	height: auto;
 }
+.openingButtonImgWrap{
+	position: relative;
+	width: 5.15rem;
+	margin: 0 auto;
+
+
+}
+.qiu2{
+	position: absolute;
+	width: 0.75rem;
+	height: auto;
+	left: -0.36rem;
+	top: 0.55rem;
+}
+.qiu1{
+	position: absolute;
+	width: 0.64rem;
+	height: auto;
+	top: 0;
+	right: -0.1rem;
+
+}
 .openingButtonImg{
 	display: block;
 	max-width: 100%;
-	width:6.87rem;
+	width:5.15rem;
 	height: auto;
 	margin: 0 auto;
 	margin-bottom: 0.28rem;
@@ -35,6 +57,9 @@ html{
 	border-bottom: 0.02rem solid #cccccc;
 
 	
+}
+.mainer .menu:nth-child(3){
+	padding-bottom: 1.5rem;
 }
 .menu .top{
 	display: -webkit-box;
@@ -165,5 +190,5 @@ html{
 	border-bottom: none;
 }
 .goodlist .top{
-	margin-bottom: 0.32rem;
+	margin-bottom: 0.3rem;
 }

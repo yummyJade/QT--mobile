@@ -3,6 +3,7 @@ var isLike = false;
 var likeNum ; 
 var visitNum;
 var id ;
+var picId;
 //精华系列
 !(function(doc, win) {
     var docEle = doc.documentElement, //获取html元素
@@ -90,7 +91,7 @@ function getActivityContent({
 	  		`
 	  			<div class="goodlist-item">
 				
-						<img src="../static/images/banner.png" alt="" class="goodlist-item-introImg">
+						<img src="../static/images/${data.data.label[0]}.png" alt="" class="goodlist-item-introImg">
 						<div class="description">
 							<div class="id" style="display:none;" >${data.data.id}</div>	
 							<div class="listName">${data.data.title}</div>
@@ -127,15 +128,15 @@ function getActivityContent({
 							</div>
 							<div class="listSponsor">
 								<img src="../static/images/sponsorIcon.png" alt="">
-								<div>主办单位：${data.data.reception}</div>
+								<div>主办单位：${data.data.host}</div>
 							</div>
 								<div class="listContactor">
-								<img src="../static/images/ContactorIcon.png" alt="">
+								<img src="../static/images/contactorIcon.png" alt="">
 								<div>联系人：${data.data.person}</div>
 							</div>
 								<div class="listPhone">
-								<img src="../static/images/PhoneIcon.png" alt="">
-								<div>预约电话：${data.data.telephone}</div>
+								<img src="../static/images/phoneIcon.png" alt="">
+								<div>预约电话：<a href="tel:${data.data.telephone}" style="color: #b3b3b3;">${data.data.telephone}</div>
 							</div>
 							
 						</div>
@@ -166,7 +167,20 @@ $(".goodlist-menu").on("click",".thumbUp",function(){
 				
 				$(that).find("span").html(data.like);
 			
+				$.ajax({
+					  url: ip + '/infolike?id='+id,
+					  dataType: 'json',
+					  success: function(data){
+					  	if(data.statu == 1){
+					  		isLike = data.is_liked;
+					  		likeNum = data.like;
+					  		visitNum = data.visitor_name;
+					  		
+					  		
+	  					}
 
+					  }
+					})
 		  	}
 		  }
 		});
@@ -176,7 +190,7 @@ $(".goodlist-menu").on("click",".thumbUp",function(){
 
 //返回上一页
 $(".title img").click(function(){
-	window.history.go(-1);
+	window.location.href="../listpage"
 })
 // function thumbUp(){
 // 	$.ajax({
@@ -193,6 +207,7 @@ function init(){
 	$(".goodlist-menu").empty();
 	$(".content").html();
 	id = getUrlQueryString("id");
+	picId = getUrlQueryString("picId");
 	getThumbUp({
 		id:id
 	});

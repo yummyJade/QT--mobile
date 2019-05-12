@@ -95,9 +95,9 @@
 	height: 0.68rem;
 	
 	background-color: #ffffff;
-	-webkit-box-shadow: inset 0rem -0.04rem 0.04rem 0rem 
+	-webkit-box-shadow: inset 0rem -0.03rem 0.03rem 0rem 
 		rgba(0, 0, 0, 0.1);
-	        box-shadow: inset 0rem -0.04rem 0.04rem 0rem 
+	        box-shadow: inset 0rem -0.03rem 0.03rem 0rem 
 		rgba(0, 0, 0, 0.1);
 	border-radius: 0.16rem;
 	border: solid 0.02rem #00d8a0;
@@ -155,13 +155,14 @@
 	height: 0;
 }
 .goodlist-item{
-	border: solid 0.04rem #ffffff;
+	border: solid 0.00rem #ffffff;
 }
 
 .chooseOnItem{
-	box-shadow: inset 0rem -0.04rem 0.04rem 0rem 
-		rgba(0, 0, 0, 0.1);
+/*	box-shadow: inset 0rem -0.04rem 0.04rem 0rem 
+		rgba(0, 0, 0, 0.1);*/
 	border: solid 0.02rem #00d8a0!important;
+	color:#00D8A0!important;
 }
 
 .chooseOnNav{

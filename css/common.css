@@ -1,12 +1,15 @@
 *{
 	padding: 0;
 	margin: 0;
+	-webkit-user-select: none;/*禁用手机浏览器的用户选择功能 */
+	-moz-user-select: none;
 }
 .clearfix::after {
     content:" ";
     display:block;
     clear:both;
 }
+
 li{
 	list-style: none;
 }
@@ -18,7 +21,10 @@ a {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
 }
+img{
 
+	-webkit-touch-callout: none;
+}
 /*底下的点击栏*/
 .navBar{
 	position: fixed;

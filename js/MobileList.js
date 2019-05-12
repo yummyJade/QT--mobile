@@ -10,6 +10,7 @@ var page = 1;
 var zoneIndex = 0;
 var labelIndex = "";
 var nowClickIndex = -1;		//记录当前在哪个功能板块展开
+var picId ;
 //其实如果用键值对可能更好
 // var zoneArray = {
 // 	1:"市南区",
@@ -170,7 +171,7 @@ function getLabelList(){
 	  dataType: 'json',
 	  success: function(data){
 	  	$(".classify-items ul").empty();
-	  	var str = '';
+	  	var str = `<li>全部</li>`;
 	  	if(data.statu == 1){
 	  		for(var i = 0, m = data.data.length ; i < m; i++ ){
 	  			str +=`
@@ -179,6 +180,34 @@ function getLabelList(){
 	  			`
 	  		}
 	  		$(".classify-items ul").append(str);
+
+
+	var label = getUrlQueryString('label') == null ? labelIndex: getUrlQueryString('label');
+	labelIndex = label;
+	if(labelIndex != ""){
+ 		$(".classify-menu span").text($(".classify-items ul li").eq(labelIndex).text());
+ 	}
+
+ 	$(".classify-items ul li").removeClass("chooseOnItem"); 
+ 	$(".classify-items ul li").eq(labelIndex).addClass("chooseOnItem");
+
+ 	//再把index换成文字
+ 	labelIndex = $(".classify-items ul li").eq(labelIndex).text();
+	  		//给分类加上颜色
+	 //  		 var i = -1;
+ 	// 		$(".classify-items ul li").each(function(){
+	 // 		if(labelIndex == $(this).text()){
+ 	// 		i = $(this).index;
+ 	// 		return;
+ 	// 	}
+ 	// })
+ 	// //不为1说明参数是有的
+ 	// if(i != -1){
+		// $(".classify-items ul li").eq(i).addClass("chooseOnItem");  	
+ 	// }else{
+ 	// 	$(".classify-items ul li").eq(0).addClass("chooseOnItem");  	
+ 	// }
+
 	  	}
 	  }
 	});
@@ -188,6 +217,10 @@ function getActivityList({
 	label:label,
 	page:page
 }){
+
+	if(label == "全部"){
+		label = '';
+	}
 	if(page == 1){
 		$(".goodlist-menu").empty();
 	}
@@ -206,10 +239,12 @@ function getActivityList({
 	  			$(".toHead").hide();
 	  		}
 	  		var str = '';
-	  	var str2 = '';
+	  		var str2 = '';
+	  		
 	  	for(var i = 0, m = data.data.length; i < m; i++){
 	  		str2 = '';
 	  		for(var j = 0, n = data.data[i].label.length; j < n; j++){
+	  			picId = getRandNum(2,6);
 	  			str2+=
 	  			`
 					<li>${data.data[i].label[j]}</li>
@@ -221,7 +256,7 @@ function getActivityList({
 
 				<div class="goodlist-item">
 				
-					<img src="../static/images/banner.png" alt="" class="goodlist-item-introImg">
+					<img src="../static/images/${data.data[i].label[0]}.png" alt="" class="goodlist-item-introImg">
 					<div class="description">
 						<div class="id" style="display:none;" >${data.data[i].id}</div>
 						<div class="listName">${data.data[i].title}</div>
@@ -282,21 +317,38 @@ function init(){
 	//先获取所有的标签
 	getLabelList();
 
+	// var searchUrl = window.location.href;
 
-	var label = getUrlQueryString('label') == null? labelIndex: getUrlQueryString('label');
+  	// var searchData = searchUrl.split("="); //截取 url中的“=”,获得“=”后面的参数
+ // 	var searchData = getUrlQueryString('label');
+ // 	console.log(searchData)
+ //  	var searchText = decodeURI(searchData); //decodeURI解码
+	// console.log(searchText)
+
+	// var label = getUrlQueryString('label') == null ? labelIndex: getUrlQueryString('label');
 	var zone = getUrlQueryString('zone') == null? zoneIndex : getUrlQueryString('zone');
- 	
- 	labelIndex = label;
+ 	// labelIndex = label;
  	zoneIndex = zone;
 
  	//对应切换选中的颜色
+ 	if(zoneIndex != 0){
+ 		$(".districts-menu span").text($(".districts-items ul li").eq(zoneIndex).text());
+
+ 	}
+ 	
+ 	
 
  	$(".districts-items ul li").removeClass("chooseOnItem"); 
  	$(".districts-items ul li").eq(zoneIndex).addClass("chooseOnItem");
 
+	// if(labelIndex != ""){
+ // 		$(".classify-menu span").text($(".classify-items ul li").eq(labelIndex).text());
+ // 	}
+ // 	$(".classify-items ul li").removeClass("chooseOnItem"); 
+ // 	$(".classify-items ul li").eq(labelIndex).addClass("chooseOnItem");
 
- 	$(".classify-items ul li").removeClass("chooseOnItem"); 
- 	$(".classify-items ul li").eq(labelIndex - 1).addClass("chooseOnItem");  	
+
+ 	
 	//先获取参数
 	let obj = {
 		zone:zoneIndex,
@@ -329,9 +381,13 @@ $(".districts-items ul li").click(function(){
 	$(".districts-items ul li").removeClass("chooseOnItem");
 	var index = $(this).index();
 	zoneIndex = index ;
-	labelIndex = "";
+	// labelIndex = "";
 	$(this).addClass("chooseOnItem");
-
+	$(".districts-menu span").text($(this).text());
+	//如果选中的是全部
+	if(index == 0){
+		$(".districts-menu span").text("区域");
+	}
 	//获取相关活动
 	page = 1;
 	let obj = {
@@ -362,6 +418,12 @@ $(".classify-items").on("click","ul li",function(){
 	$(".classify-items ul li").removeClass("chooseOnItem")
 	var text = $(this).text();
 	$(this).addClass("chooseOnItem");
+	$(".classify-menu span").text($(this).text());
+	//如果选中的是全部
+	if(text == "全部"){
+		$(".classify-menu span").text("分类");
+	}
+
 	//获取相关活动
 	page = 1;
 	labelIndex = text;
@@ -390,3 +452,7 @@ $(".classify-items").on("click","ul li",function(){
 
 
 
+function getRandNum(m,n){
+　　var num = Math.floor(Math.random()*(n - m) + m);
+　　return num;
+}

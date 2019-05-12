@@ -53,7 +53,7 @@ function getActivityList(){
 						</div>
 							<img src="../static/images/star.png" alt="" class="star">
 					</div>
-					<img src="../static/images/banner.png" alt="" class="goodlist-item-introImg">
+					<img src="../static/images/${data.data[i].label[0]}.png" alt="" class="goodlist-item-introImg">
 					<div class="description">
 						<div class="id" style="display:none;" >${data.data[i].id}</div>
 						<div class="listName">${data.data[i].title}</div>
@@ -77,7 +77,7 @@ function getActivityList(){
 
 	  		`
 	  	}
-
+	  	$(".toHead").show();
 	  	$(".goodlist-menu").append(str);
 	  	}
 	  	
@@ -87,3 +87,25 @@ function getActivityList(){
 	  }
 	});
 }
+
+
+/**
+*每一个活动项的点击事件
+*/
+$(".goodlist-menu").on('click','.goodlist-item',function(){
+	var index = $(this).index();
+	var id = $(this).find(".id").text();
+	//获取对应的id项并拼接传值
+	window.location.href = "../content?id="+id;
+	return false;
+})
+
+
+// $(".hot-labels-item").click(function(){
+
+// 	// var index = 
+// 	var searchText = $(this).text() ;
+// 	searchText.trim(searchText)
+//     var searchUrl = encodeURI("list.html?label=" + searchText.trim(searchText) ); //使用encodeURI编码
+//     window.location.href = searchUrl;
+// })
