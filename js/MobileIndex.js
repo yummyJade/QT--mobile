@@ -37,6 +37,7 @@ function getActivityList(){
 	  	var str2 = '';
 	  	for(var i = 0, m = data.data.length; i < m; i++){
 	  		str2 = '';
+	  		picId = bigIf(data.data[i].label[0]);
 	  		for(var j = 0, n = data.data[i].label.length; j < n; j++){
 	  			str2+=
 	  			`
@@ -53,7 +54,7 @@ function getActivityList(){
 						</div>
 							<img src="../static/images/star.png" alt="" class="star">
 					</div>
-					<img src="../static/images/${data.data[i].label[0]}.png" alt="" class="goodlist-item-introImg">
+					<img src="../static/images/${picId}.png" alt="" class="goodlist-item-introImg">
 					<div class="description">
 						<div class="id" style="display:none;" >${data.data[i].id}</div>
 						<div class="listName">${data.data[i].title}</div>
@@ -109,3 +110,54 @@ $(".goodlist-menu").on('click','.goodlist-item',function(){
 //     var searchUrl = encodeURI("list.html?label=" + searchText.trim(searchText) ); //使用encodeURI编码
 //     window.location.href = searchUrl;
 // })
+
+$(".openingButtonImg").click(function(){
+  window.location.href = "../   "   //在这里填点击开幕式按钮跳转的地方
+})
+
+function bigIf(str) {
+  var strback;
+
+  switch (str) {
+    case "创新要素路演":
+      strback = "cxysly";
+      break;
+
+    case "观摩科技产业":
+      strback = "gmkjcy";
+      break;
+
+    case "科技惠农扶贫":
+      strback = "kjhnfp";
+      break;
+
+    case "科技政策宣讲":
+      strback = "kjzcxj";
+      break;
+
+    case "科技走进生活":
+      strback = "kjzjsh";
+      break;
+
+    case "科普游园会":
+      strback = "kpyyh";
+      break;
+
+    case "蓝色海洋":
+      strback = "lshy";
+      break;
+
+    case "少年爱科学":
+      strback = "snakx";
+      break;
+
+    case "探秘实验室":
+      strback = "tmsys";
+      break;
+
+    default:
+      strback = "lshy";
+  }
+
+  return strback;
+}

@@ -77,10 +77,11 @@ function getActivityContent(_ref2) {
           );
         }
 
+        picId = bigIf(data.data.label[0]);
         str =
           '\n\t  \t\t\t<div class="goodlist-item">\n\t\t\t\t\n\t\t\t\t\t\t<img src="../static/images/'
             .concat(
-              data.data.label[0],
+              picId,
               '.png" alt="" class="goodlist-item-introImg">\n\t\t\t\t\t\t<div class="description">\n\t\t\t\t\t\t\t<div class="id" style="display:none;" >'
             )
             .concat(
@@ -189,6 +190,53 @@ function init() {
   getThumbUp({
     id: id
   });
+}
+
+function bigIf(str) {
+  var strback;
+
+  switch (str) {
+    case "创新要素路演":
+      strback = "cxysly";
+      break;
+
+    case "观摩科技产业":
+      strback = "gmkjcy";
+      break;
+
+    case "科技惠农扶贫":
+      strback = "kjhnfp";
+      break;
+
+    case "科技政策宣讲":
+      strback = "kjzcxj";
+      break;
+
+    case "科技走进生活":
+      strback = "kjzjsh";
+      break;
+
+    case "科普游园会":
+      strback = "kpyyh";
+      break;
+
+    case "蓝色海洋":
+      strback = "lshy";
+      break;
+
+    case "少年爱科学":
+      strback = "snakx";
+      break;
+
+    case "探秘实验室":
+      strback = "tmsys";
+      break;
+
+    default:
+      strback = "lshy";
+  }
+
+  return strback;
 }
 
 init();

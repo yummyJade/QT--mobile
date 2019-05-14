@@ -4,7 +4,7 @@
 //要改的bug
 //两个按钮切换的状态
 
-
+var array = [];
 var ip = 'http://47.100.178.113:8082';
 var page = 1;
 var zoneIndex = 0;
@@ -170,9 +170,11 @@ function getLabelList(){
 	  url: ip + '/labels',
 	  dataType: 'json',
 	  success: function(data){
+	  
 	  	$(".classify-items ul").empty();
 	  	var str = `<li>全部</li>`;
 	  	if(data.statu == 1){
+	  		array = data.data;
 	  		for(var i = 0, m = data.data.length ; i < m; i++ ){
 	  			str +=`
 	  				<li>${data.data[i]}</li>
@@ -182,32 +184,8 @@ function getLabelList(){
 	  		$(".classify-items ul").append(str);
 
 
-	var label = getUrlQueryString('label') == null ? labelIndex: getUrlQueryString('label');
-	labelIndex = label;
-	if(labelIndex != ""){
- 		$(".classify-menu span").text($(".classify-items ul li").eq(labelIndex).text());
- 	}
 
- 	$(".classify-items ul li").removeClass("chooseOnItem"); 
- 	$(".classify-items ul li").eq(labelIndex).addClass("chooseOnItem");
-
- 	//再把index换成文字
- 	labelIndex = $(".classify-items ul li").eq(labelIndex).text();
-	  		//给分类加上颜色
-	 //  		 var i = -1;
- 	// 		$(".classify-items ul li").each(function(){
-	 // 		if(labelIndex == $(this).text()){
- 	// 		i = $(this).index;
- 	// 		return;
- 	// 	}
- 	// })
- 	// //不为1说明参数是有的
- 	// if(i != -1){
-		// $(".classify-items ul li").eq(i).addClass("chooseOnItem");  	
- 	// }else{
- 	// 	$(".classify-items ul li").eq(0).addClass("chooseOnItem");  	
- 	// }
-
+ 	
 	  	}
 	  }
 	});
@@ -244,7 +222,7 @@ function getActivityList({
 	  	for(var i = 0, m = data.data.length; i < m; i++){
 	  		str2 = '';
 	  		for(var j = 0, n = data.data[i].label.length; j < n; j++){
-	  			picId = getRandNum(2,6);
+	  			picId = bigIf(data.data[i].label[0]);
 	  			str2+=
 	  			`
 					<li>${data.data[i].label[j]}</li>
@@ -256,7 +234,7 @@ function getActivityList({
 
 				<div class="goodlist-item">
 				
-					<img src="../static/images/${data.data[i].label[0]}.png" alt="" class="goodlist-item-introImg">
+					<img src="../static/images/${picId}.png" alt="" class="goodlist-item-introImg">
 					<div class="description">
 						<div class="id" style="display:none;" >${data.data[i].id}</div>
 						<div class="listName">${data.data[i].title}</div>
@@ -315,7 +293,39 @@ function getUrlQueryString(names, urls) {
 */
 function init(){
 	//先获取所有的标签
-	getLabelList();
+	Promise.resolve().then((resolved,rejectd)=>{
+		console.log('array')
+		getLabelList();
+		resolved();
+	}).then((resolve,reject)=>{
+		var label = getUrlQueryString('label') == null ? labelIndex: getUrlQueryString('label');
+		
+		var	tempindex = 0;
+		if(label != ""){
+			labelIndex = hugeIf(label - 0);
+			for(var j = 0; j < array.length; j++){
+				console.log('array'+array[j])
+				if(labelIndex == array[j]){
+					tempindex = j;
+					break;
+				}
+			}
+ 		$(".classify-menu span").text(labelIndex);
+ 	}
+
+ 	$(".classify-items ul li").removeClass("chooseOnItem"); 
+ 	$(".classify-items ul li").eq(tempindex+1).addClass("chooseOnItem");
+ 	//先获取参数
+	setTimeout(function(){
+		let obj = {
+			zone:zoneIndex,
+			label:labelIndex,
+			page:page
+		};
+		getActivityList(obj);
+	},0)
+	})
+	
 
 	// var searchUrl = window.location.href;
 
@@ -349,13 +359,8 @@ function init(){
 
 
  	
-	//先获取参数
-	let obj = {
-		zone:zoneIndex,
-		label:labelIndex,
-		page:page
-	};
-	getActivityList(obj);
+	
+
 }
 
 init();
@@ -455,4 +460,36 @@ $(".classify-items").on("click","ul li",function(){
 function getRandNum(m,n){
 　　var num = Math.floor(Math.random()*(n - m) + m);
 　　return num;
+}
+
+
+function bigIf(str){
+	var strback ;
+	switch(str){
+		case "创新要素路演": strback = "cxysly";break;
+		case "观摩科技产业": strback = "gmkjcy";break;
+		case "科技惠农扶贫": strback = "kjhnfp";break;
+		case "科技政策宣讲": strback = "kjzcxj";break;
+		case "科技走进生活": strback = "kjzjsh";break;
+		case "科普游园会" : strback = "kpyyh";break;
+		case "蓝色海洋" : strback = "lshy";break;
+		case "少年爱科学" : strback = "snakx";break;
+		case "探秘实验室" : strback = "tmsys";break;
+		default : strback = 'lshy';
+	}
+	
+	
+	return strback;
+}
+
+function hugeIf(str){
+	var strback;
+	switch(str){
+		case 1: strback = "探秘实验室";break;
+		case 3: strback = "少年爱科学";break;
+		case 5: strback = "观摩科技产业";break;
+		case 6: strback = "科技走进生活";break;
+
+	}
+	return strback;
 }

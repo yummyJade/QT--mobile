@@ -204,10 +204,13 @@ function getLabelList() {
     url: ip + "/labels",
     dataType: "json",
     success: function success(data) {
+      var array = [];
       $(".classify-items ul").empty();
       var str = "<li>\u5168\u90E8</li>";
 
       if (data.statu == 1) {
+        array = data.data;
+
         for (var i = 0, m = data.data.length; i < m; i++) {
           str += "\n\t  \t\t\t\t<li>".concat(
             data.data[i],
@@ -220,24 +223,43 @@ function getLabelList() {
           getUrlQueryString("label") == null
             ? labelIndex
             : getUrlQueryString("label");
-        labelIndex = label;
+        var tempindex = 0;
 
-        if (labelIndex != "") {
-          $(".classify-menu span").text(
-            $(".classify-items ul li")
-              .eq(labelIndex)
-              .text()
-          );
+        if (label != "") {
+          labelIndex = hugeIf(label - 0);
+
+          for (var j = 0; j < array.length; j++) {
+            if (labelIndex == array[j]) {
+              tempindex = j;
+              break;
+            }
+          }
+
+          $(".classify-menu span").text(labelIndex);
+        }else{
+          tempindex = -1;
         }
 
         $(".classify-items ul li").removeClass("chooseOnItem");
         $(".classify-items ul li")
-          .eq(labelIndex)
-          .addClass("chooseOnItem"); //再把index换成文字
+          .eq(tempindex + 1)
+          .addClass("chooseOnItem"); //先获取参数
 
-        labelIndex = $(".classify-items ul li")
-          .eq(labelIndex)
-          .text(); //给分类加上颜色
+        setTimeout(function() {
+          var obj = {
+            zone: zoneIndex,
+            label: labelIndex,
+            page: page
+          };
+          getActivityList(obj);
+        }, 0); //先获取参数
+        // let obj = {
+        //  zone:zoneIndex,
+        //  label:labelIndex,
+        //  page:page
+        // };
+        // getActivityList(obj);
+        //给分类加上颜色
         //       var i = -1;
         //    $(".classify-items ul li").each(function(){
         //    if(labelIndex == $(this).text()){
@@ -288,7 +310,7 @@ function getActivityList(_ref) {
           str2 = "";
 
           for (var j = 0, n = data.data[i].label.length; j < n; j++) {
-            picId = getRandNum(2, 6);
+            picId = bigIf(data.data[i].label[0]);
             str2 += "\n\t\t\t\t\t<li>".concat(
               data.data[i].label[j],
               "</li>\n\t  \t\t\t"
@@ -298,7 +320,7 @@ function getActivityList(_ref) {
           str +=
             '\n\n\t\t\t\t<div class="goodlist-item">\n\t\t\t\t\n\t\t\t\t\t<img src="../static/images/'
               .concat(
-                data.data[i].label[0],
+                picId,
                 '.png" alt="" class="goodlist-item-introImg">\n\t\t\t\t\t<div class="description">\n\t\t\t\t\t\t<div class="id" style="display:none;" >'
               )
               .concat(
@@ -378,14 +400,6 @@ function init() {
   //  }
   //  $(".classify-items ul li").removeClass("chooseOnItem");
   //  $(".classify-items ul li").eq(labelIndex).addClass("chooseOnItem");
-  //先获取参数
-
-  var obj = {
-    zone: zoneIndex,
-    label: labelIndex,
-    page: page
-  };
-  getActivityList(obj);
 }
 
 init();
@@ -495,4 +509,75 @@ $(".classify-items").on("click", "ul li", function() {
 function getRandNum(m, n) {
   var num = Math.floor(Math.random() * (n - m) + m);
   return num;
+}
+
+function bigIf(str) {
+  var strback;
+
+  switch (str) {
+    case "创新要素路演":
+      strback = "cxysly";
+      break;
+
+    case "观摩科技产业":
+      strback = "gmkjcy";
+      break;
+
+    case "科技惠农扶贫":
+      strback = "kjhnfp";
+      break;
+
+    case "科技政策宣讲":
+      strback = "kjzcxj";
+      break;
+
+    case "科技走进生活":
+      strback = "kjzjsh";
+      break;
+
+    case "科普游园会":
+      strback = "kpyyh";
+      break;
+
+    case "蓝色海洋":
+      strback = "lshy";
+      break;
+
+    case "少年爱科学":
+      strback = "snakx";
+      break;
+
+    case "探秘实验室":
+      strback = "tmsys";
+      break;
+
+    default:
+      strback = "lshy";
+  }
+
+  return strback;
+}
+
+function hugeIf(str) {
+  var strback;
+
+  switch (str) {
+    case 1:
+      strback = "探秘实验室";
+      break;
+
+    case 3:
+      strback = "少年爱科学";
+      break;
+
+    case 5:
+      strback = "观摩科技产业";
+      break;
+
+    case 6:
+      strback = "科技走进生活";
+      break;
+  }
+
+  return strback;
 }

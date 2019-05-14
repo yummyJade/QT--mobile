@@ -1,0 +1,259 @@
+.header{
+	position: fixed;
+	top: 0;
+	z-index: 200;
+}
+.container{
+	padding-top: 1rem;
+}
+.goodlist-item{
+	width: auto;
+	height: auto;
+	border: none;
+	border-radius: unset;
+}
+.header .title{
+	width: 7.5rem;
+	height: 1rem;
+	line-height: 1rem;
+	text-align: center;
+	background-color: #00d8a0;
+	font-size: 0.36rem;
+	color: white;
+	position: relative;
+}
+.header .title img{
+	position: absolute;
+	left: 0.33rem;
+	top: 50%;
+	margin-top: -0.21rem;
+	width: 0.23rem;
+	height: 0.42rem;
+}
+
+.menu{
+	/*padding: 0.25rem 0.3rem 0.3rem 0.3rem;*/
+	border-bottom: 0.02rem solid #cccccc;
+
+	
+}
+
+
+.goodlist{
+	border-bottom: none;
+}
+.goodlist-item{
+	width: 100%;
+
+	/*padding-bottom: 0.32rem;*/
+
+	-webkit-box-shadow: none;
+	        box-shadow: none;
+}
+.menu{
+	padding-top: 0;
+}
+
+.listBtn .words{
+	color: #00d8a0;
+}
+
+
+.goodlist-item-introImg{
+	width: 7.5rem;
+	height: auto;
+}
+
+.others{
+	width: 1.8rem;
+	/*float: right;*/
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	margin-right: 0.3rem;
+
+}
+.listLabels{
+	width: 3.5rem;
+	/*float: left;*/
+}
+.others .thumbUp,.others .see{
+
+	font-size: 0.24rem;
+	color: #b3b3b3;
+}
+.others .thumbUp img{
+
+	width: 0.31rem;
+	height: auto;
+	
+}
+.others .see{
+	height: 0.25rem;
+}
+.others .see img{
+	width: 0.38rem;
+	height: auto;
+}
+.goodlist-item .bottom{
+	margin-bottom: 0.14rem;
+	
+	display: -webkit-box;
+	
+	display: -ms-flexbox;
+	
+	display: flex;
+	-webkit-box-align: end;
+	    -ms-flex-align: end;
+	        align-items: flex-end;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+}
+.goodlist-item .listLabels ul li,.others{
+	margin-top: 0.12rem;
+}
+.goodlist-item .listLabels ul li:nth-child(2n){
+	margin-right: 0;
+}
+.listLabels{
+	margin-left: 0.3rem;
+}
+.listName{
+	margin-left: 0.3rem;
+	margin-right: 0.3rem;
+}
+.listTime,.listAddress,.listSponsor,.listContactor,.listPhone{
+
+	border-bottom: 0.01rem solid #e6e6e6;
+	margin-top:0rem;
+	padding: 0.16rem 0.3rem 0.16rem 0.3rem;
+}
+
+.listTime{
+	border-top: 0.01rem solid #e6e6e6;
+}
+
+.description{
+	width: 100%;
+	padding: 0;
+}
+.activityContent{
+	width: 6.92rem;
+	margin: 0 auto;
+	/*margin-bottom: 1.5rem;*/
+
+}
+.activityContent .top{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	margin-top: 0.32rem;
+}
+.activityContent .top .word{
+	white-space:nowrap;
+	width: 1.2rem;
+	-ms-flex-negative:0;
+	    flex-shrink:0;
+	font-size: 0.3rem;
+	color: #4d4d4d;
+}
+.activityContent .top .line{
+	-ms-flex-negative:1;
+	    flex-shrink:1;
+	/*flex-grow:1;*/
+	width: 2.66rem;
+	height: 0.02rem;
+	background-color: #00d8a0;
+}
+.activityContent .content{
+	
+	font-size: 0.26rem;
+	line-height: 0.36rem;
+	color: #666666;
+	margin: 0 auto;
+	margin-top: 0.32rem;
+	margin-bottom: 0.32rem;
+}
+.goodlist-item .listLabels{
+	margin-bottom: 0;
+}
+.goodlist-item .listName{
+	font-size: 0.34rem;
+	margin-bottom: 0.16rem;
+}
+
+.introImg img{
+	float: left;
+	width:2.1rem;
+	height:1.8rem;
+	margin-right: 0.3rem;
+}
+
+.introImg img:nth-child(3n){
+	margin-right: 0;
+}
+.goodlist-item{
+	min-height: auto;
+}
+
+.line2{
+	width: 100%;
+	height: 0.02rem;
+	background-color:  rgba(0,216,160,1);
+	margin-top: 0.34rem;
+}
+.listName span{
+	color: #00D8A0;
+}
+
+
+.mapImg{
+	max-width: 100%;
+	width:6.9rem;
+	height:5.72rem;
+	display: block;
+	margin: 0 auto;
+
+
+}
+
+.arrow-down-2{
+	width:0.42rem;
+	height:0.23rem;
+	display: block;
+	margin: 0 auto;
+	margin-top: 0.59rem;
+	margin-bottom: 1.41rem;
+}
+
+.topText{
+
+	font-size: 0.3rem;
+	line-height: 0.36rem;
+	letter-spacing: 0rem;
+	color: #333333;
+	text-align: center;
+	margin-top: 0.45rem;
+}
+.topText2{
+	font-size: 0.3rem;
+	line-height: 0.36rem;
+	letter-spacing: 0rem;
+	color: #333333;
+	text-align: center;
+	margin-top: 0.3rem;
+	margin-bottom: 0.45rem;
+}

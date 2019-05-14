@@ -86,12 +86,13 @@ function getActivityContent({
 	  				<li>${data.data.label[i]}</li>
 	  			`
 	  		}
+	  		picId = bigIf(data.data.label[0]);
 	  		str = 
 
 	  		`
 	  			<div class="goodlist-item">
 				
-						<img src="../static/images/${data.data.label[0]}.png" alt="" class="goodlist-item-introImg">
+						<img src="../static/images/${picId}.png" alt="" class="goodlist-item-introImg">
 						<div class="description">
 							<div class="id" style="display:none;" >${data.data.id}</div>	
 							<div class="listName">${data.data.title}</div>
@@ -213,6 +214,23 @@ function init(){
 	});
 
 }
-
+function bigIf(str){
+	var strback ;
+	switch(str){
+		case "创新要素路演": strback = "cxysly";break;
+		case "观摩科技产业": strback = "gmkjcy";break;
+		case "科技惠农扶贫": strback = "kjhnfp";break;
+		case "科技政策宣讲": strback = "kjzcxj";break;
+		case "科技走进生活": strback = "kjzjsh";break;
+		case "科普游园会" : strback = "kpyyh";break;
+		case "蓝色海洋" : strback = "lshy";break;
+		case "少年爱科学" : strback = "snakx";break;
+		case "探秘实验室" : strback = "tmsys";break;
+		default : strback = 'lshy';
+	}
+	
+	
+	return strback;
+}
 
 init();
